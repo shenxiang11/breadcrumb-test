@@ -5,6 +5,7 @@ import EditView from '@/views/EditView.vue'
 import {useBreadcrumbStore} from "@/store/useBreadcrumbStore";
 import DetailView from "@/views/DetailView.vue";
 import _ from "lodash";
+import ForthView from "@/views/ForthView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,14 @@ const router = createRouter({
         title: '详情',
       },
       component: DetailView
+    },
+    {
+      path: '/forth',
+      name: 'forth',
+      meta: {
+        title: '第四级页面',
+      },
+      component: ForthView
     },
     {
       path: '/edit',
@@ -63,7 +72,12 @@ const breadcrumbsStruct = [
             name: 'edit'
           },
           {
-            name: 'detail'
+            name: 'detail',
+            children: [
+              {
+                name: 'forth',
+              },
+            ],
           }
         ]
       }
